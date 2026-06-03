@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    <!-- Internal CSS -->
+    <style>
+        body{
+            background-color: ghostwhite;
+        }
+    </style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <div id="MainHeader">
+        <h1 style="color:red;">Local Community Event Portal</h1>
+    </div>
+    <!-- Navigation Menu -->
+    <ul class="nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="help.html" target="_blank">Help</a></li>
+    </ul>
+    <!-- Welcome Banner -->
+    <div id="welcomeBanner">
+        <h2>Welcome!</h2>
+        <p class="highlight">
+            Thanks for logging in!
+        </p>
+        <p>
+            <span style="color:red;font-weight:bold;">
+                Special Offer: Get 50% Off Today!
+            </span>
+        </p>
+    </div>
+    <!-- Sections -->
+    <div class="sections-grid">
+        <section id="home">
+            <h2>Home</h2>
+            <p class="section-desc">
+                Welcome to the Local Community Event Portal.
+                Stay updated with community activities,
+                social events, and local programs.
+            </p>
+        </section>
+        <section id="events">
+            <h2>Events</h2>
+            <p class="section-desc">
+                Browse available events and register
+                for activities that interest you.
+            </p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p class="section-desc">
+                Contact the event organizers for
+                additional information and support.
+            </p>
+        </section>
+    </div>
+    <!-- Image Gallery -->
+    <h2>Image Gallery</h2>
+    <div id="image-gallery">
+        <table>
+            <tr>
+                <td>
+                    <img
+                        src="https://images.pexels.com/photos/15807347/pexels-photo-15807347/free-photo-of-market-stall-tents.jpeg?w=1260&h=750&dpr=2"
+                        alt="Market Stalls"
+                        class="eventCard">
+                </td>
+                <td>
+                    <img
+                        src="https://images.pexels.com/photos/21365434/pexels-photo-21365434/free-photo-of-flea-market-against-trees-in-the-background.jpeg?w=1260&h=750&dpr=2"
+                        alt="Flea Market"
+                        class="eventCard">
+                </td>
+                <td>
+                    <img
+                        src="https://images.pexels.com/photos/33852781/pexels-photo-33852781/free-photo-of-vibrant-crowds-at-titusville-air-show-event.jpeg?w=1260&h=750&dpr=2"
+                        alt="Community Event"
+                        class="eventCard">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img
+                        src="https://cdn.pixabay.com/photo/2013/12/12/20/01/fireworks-227383_1280.jpg"
+                        alt="Fireworks"
+                        class="eventCard">
+                </td>
+                <td>
+                    <img
+                        src="https://images.pexels.com/photos/21365434/pexels-photo-21365434/free-photo-of-flea-market-against-trees-in-the-background.jpeg?w=1260&h=750&dpr=2"
+                        alt="Market"
+                        class="eventCard">
+                </td>
+                <td>
+                    <img
+                        src="https://images.pexels.com/photos/33852781/pexels-photo-33852781/free-photo-of-vibrant-crowds-at-titusville-air-show-event.jpeg?w=1260&h=750&dpr=2"
+                        alt="Festival"
+                        class="eventCard">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- Registration Form -->
+    <h2>Event Registration Form</h2>
+    <form onsubmit="confirmation.value='Registration Submitted Successfully!'; return false;">
+        <label>Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <label>Phone Number</label>
+        <input type="text"
+               id="phone"
+               placeholder="Enter phone number"
+               onblur="validatePhone()"
+               required>
+
+        <label>Event Date</label>
+        <input type="date" id="date" required>
+
+        <label>Event Type</label>
+
+        <select id="eventss" onchange="showFee()" required>
+            <option value="">Select Event</option>
+            <option>Tree Plantation</option>
+            <option>Blood Donation</option>
+            <option>Sports Meet</option>
+            <option>Cultural Festival</option>
+        </select>
+
+        <p id="fee"></p>
+
+        <label>Message</label>
+
+        <textarea
+            id="message"
+            rows="4"
+            placeholder="Enter your message"
+            required></textarea>
+
+        <br><br>
+
+        <img
+            src="https://images.pexels.com/photos/50987/money-card-business-credit-card-50987.jpeg?w=1260&h=750&dpr=2"
+            alt="Event"
+            width="150"
+            ondblclick="enlargeImage(this)">
+
+        <p>Double click the image to enlarge.</p>
+
+        <input type="submit" value="Register" class="btn">
+
+        <button type="button" class="btn" onclick="savePreference()">
+            Save
+        </button>
+
+        <button type="button" class="btn" onclick="clearPreferences()">
+            Clear
+        </button>
+
+        <output name="confirmation"></output>
+
+    </form>
+
+    <!-- Video -->
+    <h2>Event Promo Video</h2>
+
+    <video width="500" controls>
+        <source src="event-video.mp4" type="video/mp4">
+    </video>
+
+    <!-- Location -->
+    <h2>Nearby Events</h2>
+
+    <button class="btn" onclick="findLocation()">
+        Find Nearby Events
+    </button>
+
+    <p id="location"></p>
+
+    <!-- Admin Table -->
+    <h2>Events Admin Table</h2>
+    <div class="table-wrapper">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tree Plantation</td>
+                    <td>10 June</td>
+                    <td>City Park</td>
+                </tr>
+                <tr>
+                    <td>Blood Donation</td>
+                    <td>15 June</td>
+                    <td>Community Hall</td>
+                </tr>
+                <tr>
+                    <td>Sports Meet</td>
+                    <td>20 June</td>
+                    <td>Sports Ground</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Bulletin Section -->
+    <section id="bulletin">
+        <h2>Community Bulletin</h2>
+        <div class="news-article">
+            <p>
+                Community members are invited to participate in
+                various social welfare activities throughout the month.
+                Local volunteers continue to organize events that improve
+                public spaces and strengthen community engagement.
+            </p>
+            <p>
+                Several educational workshops and cultural programs
+                are also planned. Residents are encouraged to register
+                early to secure participation slots.
+            </p>
+        </div>
+    </section>
+    <script src="script.js"></script>
+    <!-- css
+    <style>
+    </style> -->
+    <script>
+         function validatePhone() {
+            let phone = document.getElementById("phone").value;
+
+            if (phone.length != 10 || isNaN(phone)) {
+                alert("Enter a valid 10-digit phone number");
+            }
+        }
+
+        function showFee() {
+            let event = document.getElementById("eventss").value;
+            let fee = document.getElementById("fee");
+
+            if (event == "Sports Meet")
+                fee.innerHTML = "Fee: ₹200";
+            else if (event == "Cultural Festival")
+                fee.innerHTML = "Fee: ₹150";
+            else if (event == "Blood Donation")
+                fee.innerHTML = "Fee: Free";
+            else
+                fee.innerHTML = "";
+        }
+
+        function confirmSubmission() {
+            alert("Feedback Submitted Successfully!");
+        }
+
+        function enlargeImage(img) {
+            img.width = 300;
+            img.height = 200;
+        }
+
+        function countChars() {
+            let text = document.getElementById("feedback").value;
+            document.getElementById("count").innerHTML =
+                "Characters: " + text.length;
+        }
+        function videoReady() {
+            document.getElementById("message").innerHTML =
+                "Video ready to play";
+        }
+
+        window.onbeforeunload = function () {
+            return "You have not completed the form. Are you sure you want to leave?";
+        };
+        window.onload = function () {
+            let savedEvent = localStorage.getItem("preferredEvent");
+
+            if (savedEvent) {
+                document.getElementById("eventType").value = savedEvent;
+            }
+        };
+
+        function savePreference() {
+            let event =
+                document.getElementById("eventType").value;
+
+            localStorage.setItem("preferredEvent", event);
+
+            alert("Preference Saved!");
+        }
+
+        function clearPreferences() {
+            localStorage.clear();
+            sessionStorage.clear();
+
+            alert("Preferences Cleared!");
+        }
+        function findLocation() {
+
+            if (navigator.geolocation) {
+
+                navigator.geolocation.getCurrentPosition(
+                    showPosition,
+                    showError,
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 0
+                    }
+                );
+
+            } else {
+                document.getElementById("location").innerHTML =
+                    "Geolocation is not supported.";
+            }
+        }
+
+        function showPosition(position) {
+
+            document.getElementById("location").innerHTML =
+                "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+        }
+
+        function showError(error) {
+
+            switch (error.code) {
+
+                case error.PERMISSION_DENIED:
+                    document.getElementById("location").innerHTML =
+                        "User denied location access.";
+                    break;
+
+                case error.TIMEOUT:
+                    document.getElementById("location").innerHTML =
+                        "Location request timed out.";
+                    break;
+
+                default:
+                    document.getElementById("location").innerHTML =
+                        "Unable to retrieve location.";
+            }
+        }
+    </script>
+</body>
+</html>
