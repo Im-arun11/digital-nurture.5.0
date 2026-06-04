@@ -1,0 +1,348 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+    background-color: ghostwhite; /* Matches the internal HTML style fallback */
+    background-image: url("https://images.unsplash.com/photo-1626275336544-417f7db75bf7?q=80&w=1333&auto=format&fit=crop");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* ===== HEADER ===== */
+#MainHeader {
+    background-color: lightblue;
+    padding: 15px;
+    text-align: center;
+}
+
+/* ===== WELCOME BANNER ===== */
+#welcomeBanner {
+    background: linear-gradient(to bottom, #007BFF, #00C6FF);
+    padding: 15px;
+    text-align: center;
+    color: white;
+}
+
+/* ===== TYPOGRAPHY & HEADINGS ===== */
+h1, h2, h3, h4 {
+    font-weight: 700;
+}
+
+h2 {
+    background: linear-gradient(to right, #007BFF, #00C6FF);
+    color: white;
+    padding: 10px;
+    margin: 20px 0 10px 0;
+}
+
+p, label, input, select, textarea {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.section-desc {
+    font-style: italic;           
+    font-weight: 300;             
+    text-align: justify;          
+    letter-spacing: 0.5px;        
+    line-height: 1.8;             
+    color: #333;
+}
+
+/* ===== NAVIGATION MENU ===== */
+.nav-list {
+    list-style-type: none;        
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    background-color: #004080;
+}
+
+.nav-list li {
+    padding: 10px 0;            
+    width: 100%;
+    text-align: center;
+}
+
+.nav-list a:link, .nav-list a:visited {
+    color: #ffffff;               
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+}
+
+.nav-list a:hover {
+    color: #FFD700;               
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.nav-list a:active {
+    color: #ff6600;               
+}
+
+/* ===== GRID LAYOUT FOR SECTIONS ===== */
+.sections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);   
+    gap: 16px;
+    padding: 16px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+section {
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* ===== IMAGE GALLERY ===== */
+#image-gallery {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.85);
+    margin: 10px auto;
+    width: 95%;
+    border-radius: 8px;
+}
+
+#image-gallery table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#image-gallery td {
+    padding: 10px;
+    text-align: center;
+}
+
+.eventCard {
+    border: 1px solid #ccc;      
+    padding: 5px;                
+    display: inline-block;
+    border-radius: 4px;
+    transition: transform 0.2s, outline 0.2s;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    background: white;
+}
+
+.eventCard:hover {
+    outline: 3px dashed #007BFF;
+    transform: scale(1.04);
+}
+
+/* ===== FORM STYLING ===== */
+form {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+form label {
+    font-weight: 600;
+    margin-top: 12px;
+    display: block;
+    color: #333;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="date"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0 12px 0;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: 3px solid #007BFF;   
+    outline-offset: 1px;
+    border-color: #007BFF;
+}
+
+#fee {
+    font-weight: bold;
+    color: #007BFF;
+    margin: 5px 0;
+}
+
+.btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 4px;
+    margin: 8px 4px 4px 0;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* ===== ADMIN EVENTS TABLE ===== */
+.table-wrapper {
+    width: 95%;
+    margin: 16px auto;
+    overflow-x: auto;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;    
+    font-size: 14px;
+}
+
+.admin-table th {
+    background-color: #004080;
+    color: white;
+    padding: 12px;           
+    text-align: center;           
+    border: 1px solid #ccc;       
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.admin-table td {
+    padding: 12px;            
+    text-align: center;           
+    border: 1px solid #ccc;       
+    background-color: #ffffff;
+}
+
+.admin-table tbody tr:nth-child(even) {
+    background-color: #d6eaff;    
+}
+
+.admin-table tbody tr:hover {
+    background-color: #fff3cd;
+}
+
+/* ===== MULTI-COLUMN BULLETIN SECTION ===== */
+#bulletin {
+    background: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 95%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.news-article {
+    column-count: 2;              
+    column-gap: 30px;             
+    column-rule: 1px solid gray;  
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+}
+
+.news-article p {
+    margin-bottom: 10px;
+}
+
+/* ===== GENERAL VIDEO STYLING ===== */
+video {
+    display: block;
+    margin: 15px left;
+    max-width: 100%;
+    background: #000;
+}
+
+/* ===================================================
+   RESPONSIVE MEDIA QUERIES
+   =================================================== */
+
+/* ---- TABLET: max-width 1024px ---- */
+@media screen and (max-width: 1024px) {
+    .sections-grid {
+        grid-template-columns: repeat(2, 1fr);  
+    }
+}
+
+/* ---- MOBILE: max-width 768px ---- */
+@media screen and (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;          
+    }
+    
+    .nav-list li {
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding: 12px 0;
+    }
+
+    .sections-grid {
+        grid-template-columns: 1fr;      
+        padding: 10px;
+    }
+
+    #image-gallery table, #image-gallery tr, #image-gallery td {
+        display: block;                  
+        width: 100%;
+    }
+
+    #image-gallery td {
+        padding: 10px 0;
+    }
+
+    .eventCard {
+        max-width: 80%;
+    }
+
+    .news-article {
+        column-count: 1;                 
+    }
+
+    form {
+        width: 95%;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 6px 0;
+    }
+    
+    video {
+        width: 100%;
+    }
+}
+
+/* ---- SMALL MOBILE: max-width 480px ---- */
+@media screen and (max-width: 480px) {
+    p, label, input, select, textarea, .admin-table {
+        font-size: 13px;
+    }
+    
+    .eventCard {
+        max-width: 100%;
+    }
+}
